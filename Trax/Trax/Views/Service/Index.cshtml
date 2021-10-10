@@ -1,0 +1,51 @@
+﻿@model VmService
+@{
+    ViewData["Title"] = "Index";
+    int i = 0;
+
+}
+
+<!--Page Header-->
+@await Component.InvokeAsync("VcBanner", new { pageid = 4 })
+<!--Page Header ends -->
+<!-- Services us -->
+<section id="our-services" class="padding bglight">
+    <div class="container">
+        @await Component.InvokeAsync("VcPageD", new { pageid = 4 })
+
+        <div id="services-filter" class="cbp-l-filters dark bottom40 wow fadeIn d-table mx-auto" data-wow-delay="350ms">
+            @foreach (var item in Model.ServiceCategory)
+            {
+                <div data-filter="@(i==0? "*" : $".{item.Name.ToLower()}")" class="cbp-filter-item">
+                    <span>@item.Name</span>
+                </div>
+                i++;
+
+            }
+        </div>
+        <div id="services-measonry" class="cbp">
+            @foreach (var item in Model.Service)
+            {
+                <div class="cbp-item @item.ServiceCategory.Name.ToLower()">
+                    <div class="services-main">
+                        <div class="image bottom10">
+                            <div class="image"><img alt="SEO" src="~/images/@item.Image" ></div>
+                            <div class="overlay">
+                                <a asp-controller="service" asp-action="details" class="overlay_center border_radius"><i class="fa fa-eye"></i></a>
+                            </div>
+                        </div>
+                        <div class="services-content brand text-center text-md-left">
+                            <h3 class="bottom10 darkcolor"><a asp-controller="service" asp-action="details"  asp-route-serviceId="@item.Id">@item.Title</a></h3>
+                            <p class="bottom15">
+                              @(item.Desc != null && item.Desc.Length>150 ? item.Desc.Substring(0,150): item.Desc)
+                            </p>
+                            <a asp-controller="service" asp-action="details" class="button-readmore">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</section>
+<!-- Services us ends -->

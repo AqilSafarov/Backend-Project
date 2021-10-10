@@ -1,0 +1,54 @@
+﻿@model VmAbout
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!--Page Header-->
+@await Component.InvokeAsync("VcBanner", new { pageid = 5 })
+<!--Page Header ends -->
+<!-- About us -->
+<section id="aboutus" class="padding_top padding_bottom">
+    <div class="container aboutus">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6 padding_bottom_half">
+                <div class="image"><img alt="SEO" src="~/images/@Model.About.Image"></div>
+            </div>
+            <div class="col-lg-5 offset-lg-1 col-md-6 padding_bottom_half text-center text-md-left">
+                <h2 class="darkcolor font-normal bottom30">@Model.About.Title <span class="defaultcolor">Business</span> to Next Level</h2>
+                <p class="bottom35">@Model.About.Desc </p>
+                <a href="#" class="button btnsecondary gradient-btn pagescroll">Learn More</a>
+            </div>
+        </div>
+        <div class="row  align-items-center">
+            <div class="col-lg-5  col-md-6 padding_top_half text-center text-md-left">
+                <h2 class="darkcolor font-normal bottom30">@Model.About.Title2 </h2>
+                <p class="bottom35">@Model.About.Desc2</p>
+            </div>
+            <div class="col-lg-6 offset-lg-1 col-md-6 padding_top_half">
+                <div class="progress-bars">
+                    @foreach (var item in Model.Skill)
+                    {
+                        <div class="progress">
+                            <p>@item.Name</p>
+                            <div class="progress-bar gradient-bg" data-value="92">
+                                <span class="gradient-bg whitecolor">@item.Percent%</span>
+                            </div>
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About us ends -->
+<!-- WOrk Process-->
+<!--WOrk Process ends-->
+@await Component.InvokeAsync("VcProcess")
+@await Component.InvokeAsync("VcExpert")
+
+@*@await Component.InvokeAsync("VcCounters")*@
+
+<!-- Partners-->
+@await Component.InvokeAsync("VcPartner")
+<!-- Partners ends-->

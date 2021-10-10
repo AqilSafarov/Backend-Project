@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Trax | About</title>
+    <link href="~/images/favicon.ico" rel="icon">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/all.min.css">
+    <link rel="stylesheet" href="~/css/animate.min.css">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="~/css/tooltipster.min.css">
+    <link rel="stylesheet" href="~/css/cubeportfolio.min.css">
+    <link rel="stylesheet" href="~/css/revolution/navigation.css">
+    <link rel="stylesheet" href="~/css/revolution/settings.css">
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
+
+<body>
+    <!--PreLoader-->
+    <div class="loader">
+        <div class="loader-inner">
+            <div class="cssload-loader"></div>
+        </div>
+    </div>
+    <!--PreLoader Ends-->
+    <!-- header -->
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg padding-nav static-nav">
+            <div class="container">
+                <a class="navbar-brand" asp-controller="home" asp-action="index">
+                    <img src="~/images/logo.png" alt="logo">
+                </a>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" asp-controller="home" asp-action="index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " asp-controller="about" asp-action="index">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " asp-controller="service" asp-action="index">Service</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " asp-controller="team" asp-action="index">Our Team</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " asp-controller="gallery" asp-action="index">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="contact" asp-action="index">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="social-icons social-icons-simple d-lg-inline-block d-none animated fadeInUp" data-wow-delay="300ms">
+                    <li><a href="#."><i class="fab fa-facebook-f"></i> </a> </li>
+                    <li><a href="#."><i class="fab fa-twitter"></i> </a> </li>
+                    <li><a href="#."><i class="fab fa-linkedin-in"></i> </a> </li>
+                </ul>
+            </div>
+            <!--side menu open button-->
+            <a href="javascript:void(0)" class="d-inline-block sidemenu_btn" id="sidemenu_toggle">
+                <span class="gradient-bg"></span> <span class="gradient-bg"></span> <span class="gradient-bg"></span>
+            </a>
+        </nav>
+        <!-- side menu -->
+        <div class="side-menu opacity-0 gradient-bg">
+            <div class="overlay"></div>
+            <div class="inner-wrapper">
+                <span class="btn-close" id="btn_sideNavClose"><i></i><i></i></span>
+                <nav class="side-nav w-100">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="home" asp-action="index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " asp-controller="about" asp-action="index">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " asp-controller="service" asp-action="index">Service</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " asp-controller="team" asp-action="index">Our Team</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " asp-controller="gallery" asp-action="index">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " asp-controller="contact" asp-action="index">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="side-footer w-100">
+                    <ul class="social-icons-simple white top40">
+                        <li><a href="javascript:void(0)"><i class="fab fa-facebook-f"></i> </a> </li>
+                        <li><a href="javascript:void(0)"><i class="fab fa-twitter"></i> </a> </li>
+                        <li><a href="javascript:void(0)"><i class="fab fa-instagram"></i> </a> </li>
+                    </ul>
+                    <p class="whitecolor">&copy; <span id="year"></span> Trax. Made With Love by ThemesIndustry</p>
+                </div>
+            </div>
+        </div>
+        <div id="close_side_menu" class="tooltip"></div>
+        <!-- End side menu -->
+    </header>
+    <!-- header -->
+    @RenderBody()
+    @await Component.InvokeAsync("VcSubscribe")
+    <!-- Contact US ends -->
+    <!--Site Footer Here-->
+    @await Component.InvokeAsync("VcFooter")
+
+    <!--Footer ends-->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="~/js/jquery-3.4.1.min.js"></script>
+    <!--Bootstrap Core-->
+    <script src="~/js/propper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <!--to view items on reach-->
+    <script src="~/js/jquery.appear.js"></script>
+    <!--Owl Slider-->
+    <script src="~/js/owl.carousel.min.js"></script>
+    <!--number counters-->
+    <script src="~/js/jquery-countTo.js"></script>
+    <!--Parallax Background-->
+    <script src="~/js/parallaxie.js"></script>
+    <!--Cubefolio Gallery-->
+    <script src="~/js/jquery.cubeportfolio.min.js"></script>
+    <!--Fancybox js-->
+    <script src="~/js/jquery.fancybox.min.js"></script>
+    <!--tooltip js-->
+    <script src="~/js/tooltipster.min.js"></script>
+    <!--wow js-->
+    <script src="~/js/wow.js"></script>
+    <script src="https://kit.fontawesome.com/63f7886d88.js" crossorigin="anonymous"></script>
+    <!--Revolution SLider-->
+    <script src="~/js/revolution/jquery.themepunch.tools.min.js"></script>
+    <script src="~/js/revolution/jquery.themepunch.revolution.min.js"></script>
+    <!-- SLIDER REVOLUTION 5.0 EXTENSIONS -->
+    <script src="~/js/revolution/extensions/revolution.extension.actions.min.js"></script>
+    <script src="~/js/revolution/extensions/revolution.extension.carousel.min.js"></script>
+    <script src="~/js/revolution/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="~/js/revolution/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="~/js/revolution/extensions/revolution.extension.migration.min.js"></script>
+    <script src="~/js/revolution/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="~/js/revolution/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="~/js/revolution/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="~/js/revolution/extensions/revolution.extension.video.min.js"></script>
+    <!--custom functions and script-->
+    @RenderSection("Map", false)
+    <script src="~/js/functions.js"></script>
+</body>
+
+</html>

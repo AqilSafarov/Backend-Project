@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    int i = 0;
+}
+
+<!--Page Header-->
+@await Component.InvokeAsync("VcBanner", new { pageid = 2 })
+<!--Page Header ends -->
+<!-- Gallery -->
+<section id="gallery" class="bglight position-relative padding_top">
+    <div class="container">
+        <div class="row">
+            @await Component.InvokeAsync("VcPageD", new { pageid = 2 })
+            <div class="col-lg-12">
+                <div id="mosaic-filter" class="cbp-l-filters bottom30 wow fadeIn text-center" data-wow-delay="350ms">
+                    @foreach (var item in Model.GalleryCategory)
+                    {
+                        <div data-filter="@(i==0? "*" : $".{item.Name.ToLower()}")" class="cbp-filter-item">
+                            <span>@item.Name</span>
+                        </div>
+                        i++;
+                    }
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div id="grid-mosaic" class="cbp cbp-l-grid-mosaic-flat">
+                    @foreach (var item in Model.Gallery)
+                    {
+                        <div class="cbp-item @item.GalleryCategory.Name.ToLower() ">
+                            <img src="~/images/@item.Image" alt="">
+                            <div class="gallery-hvr whitecolor">
+                                <div class="center-box">
+                                    <a href="~/images/gallery-4.jpg" class="opens" data-fancybox="gallery" title="Zoom In"> <i class="fa fa-search-plus"></i></a>
+                                    <a asp-controller="home" asp-action="index" class="opens" title="View Details"> <i class="fas fa-link"></i></a>
+                                    <h4 class="w-100">@item.Name</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                </div>
+                <div class="col-lg-12">
+                    <!--Load more itema from another html file using ajax-->
+                    <div id="js-loadMore-mosaic" class="cbp-l-loadMore-button ">
+                        <a href="#" class="cbp-l-loadMore-link button py-1 button gradient-btn whitecolor transition-3" rel="nofollow">
+                            <span class="cbp-l-loadMore-defaultText">LOAD MORE (<span class="cbp-l-loadMore-loadItems">@Model.Gallery.Count</span>)</span>
+                            <span class="cbp-l-loadMore-loadingText">LOADING <i class="fas fa-spinner fa-spin"></i></span>
+                            <span class="cbp-l-loadMore-noMoreLoading d-none">NO MORE WORKS</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Gallery ends -->

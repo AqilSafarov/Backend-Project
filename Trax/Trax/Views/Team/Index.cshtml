@@ -1,0 +1,50 @@
+﻿@model VmTeamMem
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!--Page Header-->
+@await Component.InvokeAsync("VcBanner", new { pageid = 3 })
+<!--Page Header ends -->
+<!--team members-->
+<section class="padding">
+    <div class="container">
+        <div class="row">
+            @await Component.InvokeAsync("VcPageD", new { pageid = 3 })
+        </div>
+        <div class="row equal-shadow-team">
+            @foreach (var item in Model.TeamMember)
+            {
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12 pb-4">
+                    <div class="team-box wow fadeIn" data-wow-delay="350ms">
+                        <div class="image">
+                            <img src="~/images/@item.Image" alt="">
+                        </div>
+                        <div class="team-content">
+                            <h4 class="darkcolor">@item.Name @item.Surame</h4>
+                            <p>@item.Position.Name</p>
+                            <ul class="social-icons-simple">
+                                @foreach (var item2 in Model.SocialToTeamMember)
+                                {
+                                <li>
+                                    <a href="@item2.Link" title="@item2.Social.Name">
+                                        <i class="@item2.Social.Icon"></i>
+                                    </a>
+                                </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</section>
+<!--team members end-->
+<!-- Counters -->
+@await Component.InvokeAsync("VcCounters")
+<!-- Counters ends-->
+<!--team section owl carousel-->
+@*@await Component.InvokeAsync("VcExpert")*@
+<!--team section ends-->

@@ -1,0 +1,140 @@
+﻿@model VmServiceTwo
+@{
+    ViewData["Title"] = "Details";
+}
+
+<!--Page Header-->
+<!--Page Header ends -->
+@await Component.InvokeAsync("VcBanner", new { pageid = 7 })
+<!-- Services us -->
+<section id="our-services" class="padding bglight">
+    <div class="container">
+        <div class="row whitebox top15">
+            <div class="col-lg-4 col-md-5">
+                <div class="image widget bottom20"><img alt="SEO" src="~/images/aboutus.png"></div>
+                <div class="col-12 px-0">
+                    <div class="w-100">
+                        <div class="full-map short-map" id="map"></div>
+                    </div>
+                </div>
+                <div class="widget heading_space text-center text-md-left">
+                    <h4 class="text-capitalize darkcolor bottom20">Need Help?</h4>
+                    <div class="contact-table colorone d-table bottom15">
+                        <div class="d-table-cell cells">
+                            <span class="icon-cell"><i class="fas fa-mobile-alt"></i></span>
+                        </div>
+                        <div class="d-table-cell cells">
+                            <p class="bottom0">@Model.Setting.Phone <span class="d-block">@Model.Setting.Phone2</span></p>
+                        </div>
+                    </div>
+                    <div class="contact-table colorone d-table bottom15 text-left">
+                        <div class="d-table-cell cells">
+                            <span class="icon-cell"><i class="fas fa-map-marker-alt"></i></span>
+                        </div>
+                        <div class="d-table-cell cells">
+                            <p class="bottom0">
+                                @Model.Setting.Address
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contact-table colorone d-table text-left">
+                        <div class="d-table-cell cells">
+                            <span class="icon-cell"><i class="far fa-clock"></i></span>
+                        </div>
+                        <div class="d-table-cell cells">
+                            <p class="bottom0">
+                                @Model.Setting.MondaySaturday - 9:00am to 6:00pm
+                                <span class="d-block">Sunday: Closed</span>
+                            </p>
+                        </div>
+                    </div>
+                    <a href="#." class="button btnsecondary gradient-btn top30"> Download Brochure</a>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-7">
+                    <div class="widget heading_space text-center text-md-left">
+                        <h3 class="darkcolor font-normal bottom30">@Model.Service.Title</h3>
+                        <p class="bottom30">@Model.Service.Desc</p>
+                        <div class="owl-carousel" id="service-detail">
+                            @foreach (var item2 in Model.ServiceImage)
+                            {
+                                <div class="item">
+                                    <div class="image"><img alt="x" src="@item2.Image"></div>
+                                </div>
+
+                            }
+                        </div>
+                    </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div id="accordion">
+                            <div class="card">
+                                <div class="card-header">
+                                    <a class="card-link darkcolor" data-toggle="collapse" href="#collapseOne">Our Mission</a>
+                                </div>
+                                <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                                    </div>
+                                </div>
+                            </div>
+                            @foreach (var acor in Model.Accordion)
+                            {
+                                <div class="card">
+                                    <div class="card-header">
+                                        <a class="collapsed card-link darkcolor" data-toggle="collapse" href="#collapseFour">@acor.Title</a>
+                                    </div>
+                                    <div id="collapseFour" class="collapse" data-parent="#accordion">
+                                        <div class="card-body">
+                                            <p>@acor.Desc</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            }
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 mt-5 mt-md-0">
+                        <form class="wow fadeInUp" method="post" asp-controller="Service" asp-action="Consultation"  data-wow-delay="400ms">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <input class="form-control"  asp-for="Consultation.Fullname" placeholder="First Name:" required id="first_name1">
+                                        <label for="first_name1" class="d-none"></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <input class="form-control" asp-for="Consultation.CompanyName" placeholder="Company Name" id="company-name1">
+                                        <label for="company-name1" class="d-none"></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <input class="form-control"  asp-for="Consultation.Email" placeholder="Email:" required id="email1">
+                                        <label for="email1" class="d-none"></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <textarea class="form-control" asp-for="Consultation.Text" placeholder="Request a FreeConsultation" required id="FreeConsultation1"></textarea>
+                                        <label for="FreeConsultation1" class="d-none"></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <button type="submit" class="button gradient-btn w-100" id="submit_btn1">Free Consultation</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Services us ends -->
+@section Map {
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgIfLQi8KTxTJahilcem6qHusV-V6XXjw"></script>
+    <script src="~/js/map.js"></script>
+}

@@ -1,0 +1,53 @@
+﻿@model Counters
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="intro-y flex items-center mt-8">
+    <h2 class="text-lg font-medium mr-auto">
+        Create Home Part 4
+    </h2>
+</div>
+<div class="grid grid-cols-12 gap-6 mt-5">
+    <div class="intro-y col-span-12 lg:col-span-6">
+        <!-- BEGIN: Form Layout -->
+        <form method="post" asp-area="admin" asp-controller="Counters" asp-action="create" enctype="multipart/form-data">
+            <div asp-validation-summary="All" style="color:red; margin-bottom:30px;"></div>
+            <div class="intro-y box p-5">
+                <div>
+                    <label asp-for="ImageFile">Image</label>
+                    <input asp-for="ImageFile" class="input w-full border mt-2">
+                </div>
+
+
+                <div>
+                    <label asp-for="Subtitle">Subtitle</label>
+                    <input asp-for="Subtitle" class="input w-full border mt-2" placeholder="Input text">
+                </div>
+                <div>
+                    <label asp-for="Subtitle2">Subtitle2</label>
+                    <input asp-for="Subtitle2" class="input w-full border mt-2" placeholder="Input text">
+                </div>
+                <div>
+                    <label asp-for="Desc">Description</label>
+                    <input asp-for="Desc" class="input w-full border mt-2" placeholder="Input text">
+                </div>
+                <div>
+                    <label asp-for="StartYear">StartYear</label>
+                    <input asp-for="StartYear" class="input w-full border mt-2" placeholder="Input text">
+                </div>
+                <div>
+                    <label asp-for="StudentCount">StudentCount</label>
+                    <input asp-for="StudentCount" class="input w-full border mt-2" placeholder="Input text">
+                </div>
+                <div class="text-right mt-5">
+                    <a asp-area="admin" asp-controller="Counters" asp-action="index" class="button w-24 border text-gray-700 mr-1">Cancel</a>
+                    <button type="submit" class="button w-24 bg-theme-1 text-white">Create</button>
+                </div>
+            </div>
+        </form>
+        <!-- END: Form Layout -->
+    </div>
+</div>
+
+
